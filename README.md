@@ -31,5 +31,5 @@ python encode_and_decode_mp4.py --video_path path/to/mp4 --ckpt_path path/to/ckp
 You should set `ch_mult` in `magvit2/config.py`
 ```
 ch_mult: tuple[int] = (1, 2, 2, 4) # For low compression ratio ckpt
-ch_mult: tuple[int] = (1, 1, 2, 2, 4) # For low compression ratio ckpt
+ch_mult: tuple[int] = (1, 1, 2, 2, 4) # For high compression ratio ckpt
 ```
