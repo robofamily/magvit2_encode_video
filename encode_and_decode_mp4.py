@@ -90,7 +90,7 @@ def decode_latents_wrapper(video_data, ckpt_path, batch_size=16):
     for shard_ind in range(math.ceil(len(video_data) / batch_size)):
         batch = video_data[shard_ind * batch_size: (shard_ind + 1) * batch_size]
         with torch.no_grad():
-            quant = model.quantize(model.encode(batch)[0])[0]
+            quant = model.encode(batch)[0]
             decoded_imgs.append(((model.decode(quant).detach().cpu() + 1) * 127.5).to(dtype=torch.uint8))
 
     return [transforms_f.to_pil_image(img) for img in torch.cat(decoded_imgs)]
